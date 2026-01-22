@@ -51,8 +51,7 @@ source .venv/bin/activate && python main.py stop
 
 ```bash
 cd "$CLAUDE_PROJECT_DIR"
-uv venv
-uv pip install -e .
+uv sync
 ```
 
 ### Using pip

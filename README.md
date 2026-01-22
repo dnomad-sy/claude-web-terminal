@@ -20,9 +20,8 @@ Web-based Claude terminal service using Nicegui + xterm.js frontend and FastAPI 
 git clone https://github.com/dnomad-sy/claude-web-terminal.git
 cd claude-web-terminal
 
-# Create virtual environment and install dependencies
-uv venv
-uv pip install -e .
+# Install dependencies (auto-creates .venv)
+uv sync
 ```
 
 ### Using pip
@@ -45,6 +44,11 @@ pip install -e .
 ### Start Server
 
 ```bash
+# Using uv (Recommended)
+uv run python main.py start [port]
+
+# Using venv
+source .venv/bin/activate
 python main.py start [port]
 ```
 
@@ -54,13 +58,13 @@ python main.py start [port]
 ### Stop Server
 
 ```bash
-python main.py stop
+uv run python main.py stop
 ```
 
 ### Check Status
 
 ```bash
-python main.py status
+uv run python main.py status
 ```
 
 ## Keyboard Shortcuts
