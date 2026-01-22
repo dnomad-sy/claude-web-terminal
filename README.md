@@ -13,6 +13,19 @@ Web-based Claude terminal service using Nicegui + xterm.js frontend and FastAPI 
 
 ## Installation
 
+### Using uv (Recommended)
+
+```bash
+# Clone repository
+git clone https://github.com/dnomad-sy/claude-web-terminal.git
+cd claude-web-terminal
+
+# Install dependencies with uv
+uv sync
+```
+
+### Using pip
+
 ```bash
 # Clone repository
 git clone https://github.com/dnomad-sy/claude-web-terminal.git

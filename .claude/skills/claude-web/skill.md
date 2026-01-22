@@ -27,8 +27,9 @@ description: Claude Web Terminal 서버를 시작하거나 종료합니다.
 
 ```bash
 cd "$CLAUDE_PROJECT_DIR"
-source .venv/bin/activate
-python main.py start [port]
+uv run python main.py start [port]
+# 또는
+source .venv/bin/activate && python main.py start [port]
 ```
 
 - 기본 포트: 6388
@@ -39,11 +40,21 @@ python main.py start [port]
 
 ```bash
 cd "$CLAUDE_PROJECT_DIR"
-source .venv/bin/activate
-python main.py stop
+uv run python main.py stop
+# 또는
+source .venv/bin/activate && python main.py stop
 ```
 
 ## 의존성 설치 (최초 1회)
+
+### uv 사용 (권장)
+
+```bash
+cd "$CLAUDE_PROJECT_DIR"
+uv sync
+```
+
+### pip 사용
 
 ```bash
 cd "$CLAUDE_PROJECT_DIR"
