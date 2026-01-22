@@ -1,60 +1,61 @@
 ---
 name: claude-web
-description: Claude Web Terminal 서버를 시작하거나 종료합니다.
+description: Start or stop the Claude Web Terminal server.
 ---
 
 # Claude Web Terminal
 
-웹 기반 Claude 터미널 서비스를 관리합니다.
+Manages the web-based Claude terminal service.
 
-## 사용법
+## Usage
 
 ```
-/claude-web start [port]  # 서버 시작 (기본 포트: 6388)
-/claude-web stop          # 서버 종료
+/claude-web start [port]  # Start server (default port: 6388)
+/claude-web stop          # Stop server
 ```
 
-## 워크플로우
+## Workflow
 
-### 인자 파싱
+### Argument Parsing
 
-사용자 입력에서 명령과 포트를 추출:
-- `start` 또는 인자 없음 → 서버 시작
-- `start 8080` → 8080 포트로 서버 시작
-- `stop` → 서버 종료
+Extract command and port from user input:
+- `start` or no args → Start server
+- `start 8080` → Start server on port 8080
+- `stop` → Stop server
 
-### start 명령 실행
+### Start Command
 
 ```bash
 cd "$CLAUDE_PROJECT_DIR"
 uv run python main.py start [port]
-# 또는
+# or
 source .venv/bin/activate && python main.py start [port]
 ```
 
-- 기본 포트: 6388
-- PID 파일: ~/.claude-web.pid
-- 서버 URL: http://localhost:[port]
+- Default port: 6388
+- PID file: ~/.claude-web.pid
+- Server URL: http://localhost:[port]
 
-### stop 명령 실행
+### Stop Command
 
 ```bash
 cd "$CLAUDE_PROJECT_DIR"
 uv run python main.py stop
-# 또는
+# or
 source .venv/bin/activate && python main.py stop
 ```
 
-## 의존성 설치 (최초 1회)
+## Install Dependencies (First Time)
 
-### uv 사용 (권장)
+### Using uv (Recommended)
 
 ```bash
 cd "$CLAUDE_PROJECT_DIR"
-uv sync
+uv venv
+uv pip install -e .
 ```
 
-### pip 사용
+### Using pip
 
 ```bash
 cd "$CLAUDE_PROJECT_DIR"
@@ -63,22 +64,22 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-## 예시
+## Examples
 
-### 서버 시작
+### Start Server
 ```
-사용자: /claude-web start
-→ http://localhost:6388 에서 서버 시작
-```
-
-### 특정 포트로 시작
-```
-사용자: /claude-web start 8080
-→ http://localhost:8080 에서 서버 시작
+User: /claude-web start
+→ Server starts at http://localhost:6388
 ```
 
-### 서버 종료
+### Start on Custom Port
 ```
-사용자: /claude-web stop
-→ 실행 중인 서버 종료
+User: /claude-web start 8080
+→ Server starts at http://localhost:8080
+```
+
+### Stop Server
+```
+User: /claude-web stop
+→ Running server stops
 ```
